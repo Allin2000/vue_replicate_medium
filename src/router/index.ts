@@ -25,10 +25,21 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
-
+import Login from '../views/Login.vue';
+import Register from '../views/Register.vue';
+import Profile from '../views/Profile.vue';
+import Settings from '../views/Settings.vue';
+import Create_edit from '../views/Create_edit.vue';
+import Article from '../views/Article.vue';
 
 const routes = [
   { path: '/', component: Home },
+  { path: '/login', component: Login },
+  { path: '/register', component: Register },
+  { path: '/profile', component: Profile },
+  { path: '/settings', component: Settings },
+  { path: '/vreate_edit', component: Create_edit },
+  { path: '/article', component: Article },
 ];
 
 const router = createRouter({
