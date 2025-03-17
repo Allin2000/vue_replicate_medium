@@ -24,6 +24,7 @@
 
 
 import { createRouter, createWebHistory } from 'vue-router';
+import DefaultLayout from '../layouts/Default.vue'; // 导入默认布局
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
@@ -33,13 +34,21 @@ import Create_edit from '../views/Create_edit.vue';
 import Article from '../views/Article.vue';
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/login', component: Login },
-  { path: '/register', component: Register },
-  { path: '/profile', component: Profile },
-  { path: '/settings', component: Settings },
-  { path: '/vreate_edit', component: Create_edit },
-  { path: '/article', component: Article },
+  {
+    path: '/',
+    component: DefaultLayout, // 使用默认布局作为父组件
+    children: [
+      { path: '', name: 'home', component: Home },
+      { path: 'login', name: 'login', component: Login },
+      { path: 'register', name: 'register', component: Register },
+      { path: 'profile', name: 'profile', component: Profile },
+      { path: 'settings', name: 'settings', component: Settings },
+      { path: 'editor', name: 'editor', component: Create_edit }, // 注意：修正了路径名称
+      { path: 'article', name: 'article', component: Article },
+    ]
+  },
+  // 可以添加不使用默认布局的路由
+  // { path: '/some-path', component: SomeComponent },
 ];
 
 const router = createRouter({
